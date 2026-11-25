@@ -22,17 +22,12 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    font-size: 96px;
+    font-size: 72px;
     height: 20%;
-    margin: 16px;
+    margin: 8px;
 }
 
-.buttons {
-    display: flex;
-    flex: 1 1;
-}
-
-.numbers {
+.button-container {
     padding: 8px;
     display: flex;
     flex-direction: column;
@@ -45,7 +40,7 @@ body {
     flex: 1 1;
 }
 
-.btn {
+button {
     margin: 8px;
     display: flex;
     justify-content: center;

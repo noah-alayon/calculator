@@ -33,7 +33,6 @@ let num2 = "";
 
 updateDisplay(num1, operator, num2);
 
-// Only need to know if num1 was inputted
 // If num1 is inputted, then switch to input num2
 let inputNum1 = false;
 
@@ -92,9 +91,7 @@ buttonContainer.addEventListener("click", (event) => {
             num1 = "0";
             operator = "";
             num2 = "";
-            divNum1.innerText = num1;
-            divOperator.innerText = operator;
-            divNum2.innerText = num2;
+            updateDisplay(num1, operator, num2);
             inputNum1 = false;
             evaluated = false;
             break;

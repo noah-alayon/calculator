@@ -27,9 +27,11 @@ function updateDisplay(x, operator, y) {
     divNum2.innerText = y;
 }
 
-let num1 = "";
+let num1 = "0";
 let operator = "";
 let num2 = "";
+
+updateDisplay(num1, operator, num2);
 
 // Only need to know if num1 was inputted
 // If num1 is inputted, then switch to input num2
@@ -51,20 +53,18 @@ buttonContainer.addEventListener("click", (event) => {
                     num1 = "";
                     evaluated = false;
                 }
+                if (num1 == "0") num1 = "";
                 num1 += target.innerText;
                 divNum1.innerText = num1;
             }
             else {
+                if (num2 == "0") num2 = "";
                 num2 += target.innerText;
                 divNum2.innerText = num2;
             }
             break;
         case "operator":
             if (!inputNum1) {
-                if (num1 == "") {
-                    num1 = "0";
-                    divNum1.innerText = "0";
-                }
                 inputNum1 = true;
             }
             // Evaluate and update the display
@@ -89,7 +89,7 @@ buttonContainer.addEventListener("click", (event) => {
             }
             break;
         case "clear":
-            num1 = "";
+            num1 = "0";
             operator = "";
             num2 = "";
             divNum1.innerText = num1;
@@ -102,10 +102,12 @@ buttonContainer.addEventListener("click", (event) => {
             if (!evaluated) {
                 if (!inputNum1) {
                     num1 = num1.slice(0, -1);
+                    if (num1.length == 0) num1 = "0";
                     divNum1.innerText = num1;
                 }
                 else {
                     num2 = num2.slice(0, -1);
+                    if (num2.length == 0) num2 = "0";
                     divNum2.innerText = num2;
                 }
             }

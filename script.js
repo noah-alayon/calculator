@@ -47,7 +47,10 @@ buttonContainer.addEventListener("click", (event) => {
     switch (target.className) {
         case "digit":
             if (!inputNum1) {
-                if (evaluated) num1 = "";
+                if (evaluated) {
+                    num1 = "";
+                    evaluated = false;
+                }
                 num1 += target.innerText;
                 divNum1.innerText = num1;
             }
@@ -94,6 +97,18 @@ buttonContainer.addEventListener("click", (event) => {
             divNum2.innerText = num2;
             inputNum1 = false;
             evaluated = false;
+            break;
+        case "delete":
+            if (!evaluated) {
+                if (!inputNum1) {
+                    num1 = num1.slice(0, -1);
+                    divNum1.innerText = num1;
+                }
+                else {
+                    num2 = num2.slice(0, -1);
+                    divNum2.innerText = num2;
+                }
+            }
             break;
     }
 });

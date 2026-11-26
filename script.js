@@ -9,7 +9,7 @@ function operate(x, operator, y) {
         case "+": return x + y;
         case "-": return x - y;
         case "*": return x * y;
-        case "/": return x / y;
+        case "/": return (x / y).toFixed(3);
     }
 }
 
@@ -69,8 +69,6 @@ buttonContainer.addEventListener("click", (event) => {
                 num1 = String(operate(num1, operator, num2));
                 operator = "";
                 num2 = "";
-                inputNum1 = false;
-                evaluated = true;
                 updateDisplay(num1, operator, num2);
             }
             operator = target.innerText;
@@ -86,6 +84,16 @@ buttonContainer.addEventListener("click", (event) => {
                 evaluated = true;
                 updateDisplay(num1, operator, num2);
             }
+            break;
+        case "clear":
+            num1 = "";
+            operator = "";
+            num2 = "";
+            divNum1.innerText = num1;
+            divOperator.innerText = operator;
+            divNum2.innerText = num2;
+            inputNum1 = false;
+            evaluated = false;
             break;
     }
 });
